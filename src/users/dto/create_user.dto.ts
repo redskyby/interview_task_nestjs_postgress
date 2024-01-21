@@ -1,4 +1,4 @@
-export class Create_userDto{
-  readonly email : string;
-  readonly password : string;
+export class Create_userDto {
+    readonly email: string;
+    readonly password: string;
 }
