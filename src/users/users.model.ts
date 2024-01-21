@@ -1,4 +1,6 @@
-import { Column, Model, Table, DataType } from "sequelize-typescript";
+import { Column, Model, Table, DataType, BelongsToMany } from "sequelize-typescript";
+import { Role } from "../roles/roles.model";
+import { UserRoles } from "../userRoles/user_roles.model";
 
 interface UserCreationAttrs {
     email: string;
@@ -17,4 +19,7 @@ export class User extends Model<User, UserCreationAttrs> {
     banned: boolean;
     @Column({ type: DataType.STRING, allowNull: true })
     banReason: string;
+
+    @BelongsToMany(() => Role, () => UserRoles)
+    roles: Role[];
 }
