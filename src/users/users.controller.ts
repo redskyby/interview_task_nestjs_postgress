@@ -3,7 +3,8 @@ import { UsersService } from "./users.service";
 import { Create_userDto } from "./dto/create_user.dto";
 import { RolesGuard } from "../auth/roles.guard";
 import { Roles } from "../auth/roles_auth.decorator";
-import { Add_roleDto } from './dto/add_role.dto';
+import { Add_roleDto } from "./dto/add_role.dto";
+import { Ban_userDto } from "./dto/ban_user.dto";
 
 @Controller("/users")
 export class UsersController {
@@ -14,7 +15,6 @@ export class UsersController {
         return this.usersService.createUser(userDto);
     }
 
-
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
     @Get()
@@ -24,8 +24,15 @@ export class UsersController {
 
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
-    @Get('/role')
-    addRole() {
-        return this.usersService.addRole(dto: Add_roleDto);
+    @Get("/role")
+    addRole(@Body() dto: Add_roleDto) {
+        return this.usersService.addRole(dto);
+    }
+
+    @Roles("ADMIN")
+    @UseGuards(RolesGuard)
+    @Get("/ban")
+    ban(@Body() dto: Ban_userDto) {
+        return this.usersService.ban(dto);
     }
 }
