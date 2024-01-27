@@ -24,14 +24,14 @@ export class UsersController {
 
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
-    @Get("/role")
+    @Post("/role")
     addRole(@Body() dto: Add_roleDto) {
         return this.usersService.addRole(dto);
     }
 
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
-    @Get("/ban")
+    @Post("/ban")
     ban(@Body() dto: Ban_userDto) {
         return this.usersService.ban(dto);
     }
