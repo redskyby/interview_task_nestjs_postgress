@@ -1,6 +1,7 @@
-import { Column, Model, Table, DataType, BelongsToMany } from "sequelize-typescript";
+import { Column, Model, Table, DataType, BelongsToMany, HasMany } from "sequelize-typescript";
 import { Role } from "../roles/roles.model";
 import { UserRoles } from "../userRoles/user_roles.model";
+import { Post } from "../post/post.model";
 
 interface UserCreationAttrs {
     email: string;
@@ -22,4 +23,7 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[];
+
+    @HasMany(() => Post)
+    posts: Post[];
 }
