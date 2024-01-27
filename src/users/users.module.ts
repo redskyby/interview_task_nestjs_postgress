@@ -8,7 +8,6 @@ import { UserRoles } from "../userRoles/user_roles.model";
 import { RolesModule } from "../roles/roles.module";
 import { AuthModule } from "../auth/auth.module";
 
-
 @Module({
     controllers: [UsersController],
     providers: [UsersService],
