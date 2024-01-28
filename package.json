@@ -27,6 +27,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/sequelize": "^10.0.0",
+    "@nestjs/serve-static": "^4.0.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/uuid": "^9.0.8",
     "bcryptjs": "^2.4.3",

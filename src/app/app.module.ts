@@ -8,6 +8,8 @@ import { Role } from "../roles/roles.model";
 import { UserRoles } from "../userRoles/user_roles.model";
 import { AuthModule } from "../auth/auth.module";
 import { Post } from "../post/post.model";
+import { ServeStaticModule } from "@nestjs/serve-static";
+import * as path from "path";
 
 @Module({
     controllers: [],
@@ -15,6 +17,9 @@ import { Post } from "../post/post.model";
     imports: [
         ConfigModule.forRoot({
             envFilePath: ".env",
+        }),
+        ServeStaticModule.forRoot({
+            rootPath: path.resolve(__dirname, "static"),
         }),
 
         SequelizeModule.forRoot({
